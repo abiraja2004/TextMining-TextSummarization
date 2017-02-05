@@ -1,0 +1,61 @@
+********************************************************************
+*                           TEXT SUMMARIZATION
+*                   Erol Özkan          Ibrahim Ardiç
+*
+*                       Hacettepe University
+*                       BIL 614 Term Project
+*********************************************************************
+
+
+Requirements:
+Perl:
+    XML:DOM library
+
+Python: Minimum 2.7
+Libraries:
+    PorterStemmer       
+    Stemming.Porter2    1.0.1
+    Numpy               1.11
+    Networkx            1.11
+
+List of files
+
+
+- sumdata                       : DUC 2002 
+- evaulation                    : ROUGE evaulation package
+- source
+|_ Clustering.py                : Clustering Summary Algorithm      
+|_ Manager.py
+|_ Matrix.py                    : Word2Vec Vectors, Matrixes
+|_ MatrixAggregation.py         : Combine multiple matrixes
+|_ New.py
+|_ NgramExtractor.py            : Extract ngrams in sentences
+|_ Preprocess.py                : Anaphore replacement
+|_ Runner.py                    : This file is the main run configuration of the project for DUC 2002 d061j set 
+and configure the set ups 
+
+|_ RunnerAll.py                 : Summarize all provided document sets using all combinations. 
+|_ RunnerAllParams.py           : Summarize a single document set using all combination of parameters.
+|_ Selector.py
+|_ Sentiment.py                 : Used to assign sentiment scores to each sentence
+|_ TextParser.py 
+|_ TfIdfCalculator.py           : Classical TfxIdf score 
+|_ Util.py                      : Utility functions for getter functions of stop word , sentiment analysis words (positive, negative), count and length of sentences and words, length of summary document
+|_ __init__.py
+|_ backend_client.py            : Queries the server foreach word
+|_ backend_worker.py            : Creates server to serve word embedding vectors with a given word
+|_ evaluate.py                  : Calculates ROUGE score
+|_ graph.py                     : Building Graph for PageRank Algorithm.
+|_ ranker.py                    : PageRank algorithm implementation
+|_ results.csv
+|_ sentencepickerMMR.py         : Maximal Marginal Relevance algorithm implementation for sentence selection
+|_ config
+    |_ emotion_word_negative.txt
+    |_ emotion_word_positive.txt
+    |_ english_names.txt
+    |_ male_names
+    |_ GoogleNews-vectors-negative300.bin (Needs to be downloaded.)
+
+
+HOW TO RUN:
+Project can be imported from PyCharm or Intellij Idea. GoogleNews-vectors-negative300.bin.gz file should be placed in config folder to run word embedding similarity option which is defined in Runner.py line 33- useWordModel. backend_worker.py should be run first before Runner.py or RunnerAll.py or RunnerAllParams.py. When the configuration is set in these source files, the output of the cvs file "results.cvs" will be updated with ROUGE score.
